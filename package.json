@@ -1,0 +1,17 @@
+{
+  "name": "coffee",
+  "version": "1.0.0",
+  "description": "Meet for coffee dating app",
+  "main": "service-worker.js",
+  "scripts": {
+    "devStart": "nodemon chat-server.js"
+  },
+  "author": "Creative Type",
+  "license": "ISC",
+  "dependencies": {
+    "socket.io": "^4.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}

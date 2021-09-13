@@ -1,0 +1,302 @@
+body {
+    background-color: #056674;
+    font-family: 'Roboto';
+    font-weight: bold;
+    /* font-size: 22px; */
+}
+
+h1 {
+    color: #ffffff;
+}
+
+.whiteText {
+    color: #ffffff;
+}
+
+.iconsColor {
+    color: #ffffff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.mainBtn {
+    border-radius: 5px;
+    align-content: center;
+    text-align: center;
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.iconOutline {
+    background-color: #66bfbf;
+}
+
+.redButton {
+    background-color: #ff4b5c;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.greyButtonRound {
+    width: 60px;
+    height: 60px;
+    line-height: 70px;
+    border-radius: 50%;
+    text-align: center;
+    background: #66bfbf;
+}
+
+.redButtonRound {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    background: #ff4b5c;
+}
+
+.whiteButtonRound {
+    width: 50px;
+    height: 50px;
+    line-height: 64px;
+    border-radius: 50%;
+    text-align: center;
+    color: #66bfbf;
+    background: #ffffff;
+}
+
+.centreCircleButton {
+    display: inline-block;
+    text-align: center;
+    align-content: center;
+    align-self: center;
+}
+
+.otpButton {
+    background-color: #ffffff;
+    border: 2px solid #66bfbf;
+    border-radius: 15px;
+    color: #66bfbf;
+    padding: 5px;
+    margin-left: 90px;
+    margin-right: 90px;
+}
+
+.btnShorter {
+    margin-left: 90px;
+    margin-right: 90px;
+}
+
+.smallerSideMargins {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.bottomIconContainer {
+    border-radius: 10px;
+    width: 55px;
+    text-align: center;
+    padding-top: 13px;
+    padding-bottom: 13px;
+}
+
+.bicRed {
+    background-color: #ff4b5c;
+    color: #ffffff;
+}
+
+.bicWhite {
+    background-color: #ffffff;
+    color: #ff4b5c;
+}
+
+.custTextBox {
+    border: 2px solid #66bfbf;
+    border-radius: 10px;
+    height: 60px;
+    text-align: center;
+    color: #056674 !important;
+    font-size: 22px !important;
+    /* margin-left: 25px;
+    margin-right: 25px; */
+}
+
+.custTextBox :hover, :focus {
+    border: 2px solid #66bfbf !important;
+}
+
+.customRangeContainer {
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.slidecontainer {
+    width: 100%;
+    /* Width of the outside container */
+}
+
+/* The slider itself */
+
+.slider {
+    -webkit-appearance: none;
+    /* Override default CSS styles */
+    appearance: none;
+    width: 100%;
+    /* Full-width */
+    height: 70px;
+    /* Specified height */
+    background: #ffffff;
+    border-radius: 35px;
+    /* Grey background */
+    outline: none;
+    /* Remove outline */
+    /* opacity: 0.7; */
+    /* Set transparency (for mouse-over effects on hover) */
+    /* -webkit-transition: .2s; */
+    /* 0.2 seconds transition on hover */
+    /* transition: opacity .2s; */
+    z-index: 99999 !important;
+}
+
+/* Mouse-over effects */
+
+.slider:hover {
+    opacity: 1;
+    /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    /* Override default look */
+    appearance: none;
+    width: 70px;
+    /* Set a specific slider handle width */
+    height: 70px;
+    /* Slider handle height */
+    background: #ffffff !important;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid #66bfbf;
+}
+
+/* firefox */
+
+.slider::-moz-range-thumb {
+    width: 70px;
+    height: 70px;
+    background: #ffffff !important;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid #66bfbf;
+}
+
+.SliderYes {
+    color: #056674;
+    /* color: yellow; */
+    position: absolute;
+    right: 90px;
+    margin-top: 10px;
+    z-index: 5 !important;
+}
+
+.SliderNo {
+    color: #ff4b5c;
+    position: absolute;
+    left: 90px;
+    margin-top: 10px;
+    z-index: 5 !important;
+}
+
+.messageContainerDIV {
+    background-color: #66bfbf;
+    color: #056674;
+    border-radius: 7px;
+    padding: 20px 20px 20px 20px;
+    font-size: 11px;
+}
+
+.messageUsersNames {
+    font-size: 10px;
+}
+
+.floatRightName {
+    float: right !important;
+}
+
+.logoImage {
+    display: block;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    /* height: 10%; */
+}
+
+.sendButtonStylin {
+    margin-top: 5px;
+    color: #ffffff;
+    background-color: #ff4b5c;
+    border: 1px solid #ff4b5c;
+}
+
+.sendButtonStylin :hover, :focus {
+    color: #ffffff;
+    background-color: #ff4b5c;
+    border: 3px solid #ff4b5c;
+}
+
+.imageParent {
+    position: relative;
+}
+
+.imgFace {
+    /* display: inline; */
+    position: absolute;
+    display: inline-block;
+    width: 48px;
+    border-radius: 50%;
+}
+
+/* .imgFaceLeft {
+    
+} */
+
+.imgFaceRight {
+    /* -moz-transform: translateX(1900%) !important;
+    -ms-transform: translateX(1900%) !important;
+    -webkit-transform: translateX(1900%)!important;
+    -o-transform: translateX(1900%)!important;
+    transform: translateX(1900%)!important; */
+    left: 82%;
+}
+
+.msgContainer {
+    /* position: relative; */
+    /* max-height: calc( 100vh - 30px - (translateY(60%)/5.62)) !important;
+    min-height: calc(100vh - 30px - (translateY(60%)/5.62))!important;
+    height: calc(100vh - 30px - (translateY(60%)/5.62)) !important; */
+    /* max-height: calc( 100vh - calc(translateY(60%)/ 5.62)) !important;
+    min-height: calc( 100vh - calc(translateY(60%)/ 5.62))!important;
+    height: calc( 100vh - calc(translateY(60%)/ 5.62)) !important; */
+
+    max-height: 70vh;
+    min-height: 70vh;
+    height: 70vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.sContainer{
+    position: fixed;
+    background-color: #66bfbf;
+    border-radius: 5px ;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    bottom: 0;
+    
+}

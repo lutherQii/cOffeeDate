@@ -13,6 +13,14 @@ h1 {
     color: #ffffff;
 }
 
+.RedText {
+    color: #ff4b5c;
+}
+
+.GreenText {
+    color: #056674;
+}
+
 .iconsColor {
     color: #ffffff;
     padding-top: 5px;
@@ -116,10 +124,10 @@ h1 {
 .custTextBox {
     border: 2px solid #66bfbf;
     border-radius: 10px;
-    height: 60px;
+    height: 50px;
     text-align: center;
     color: #056674 !important;
-    font-size: 22px !important;
+    font-size: 18px !important;
     /* margin-left: 25px;
     margin-right: 25px; */
 }
@@ -282,7 +290,6 @@ h1 {
     /* max-height: calc( 100vh - calc(translateY(60%)/ 5.62)) !important;
     min-height: calc( 100vh - calc(translateY(60%)/ 5.62))!important;
     height: calc( 100vh - calc(translateY(60%)/ 5.62)) !important; */
-
     max-height: 70vh;
     min-height: 70vh;
     height: 70vh;
@@ -290,13 +297,12 @@ h1 {
     overflow-x: hidden;
 }
 
-.sContainer{
+.sContainer {
     position: fixed;
     background-color: #66bfbf;
-    border-radius: 5px ;
+    border-radius: 5px;
     width: 100%;
     padding-top: 5px;
     padding-bottom: 5px;
     bottom: 0;
-    
 }

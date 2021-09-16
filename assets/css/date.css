@@ -1,0 +1,89 @@
+.profileImage {
+    width: 150px;
+    border-radius: 50%;
+}
+
+.profileImageRow {
+    display: flex;
+    justify-content: center;
+}
+
+.camIconCustom {
+    position: absolute;
+    top: 140px;
+}
+
+.main-Container-Font {
+    font-size: 14px;
+}
+
+.custTextBox, .custTextBoxBigger {
+    margin-bottom: 5px;
+}
+
+.custTextBoxBigger {
+    border: 2px solid #66bfbf;
+    border-radius: 10px;
+    height: 100px;
+    text-align: center;
+    color: #056674 !important;
+    font-size: 18px !important;
+    /* margin-left: 25px;
+    margin-right: 25px; */
+}
+
+.custTextBoxBigger :hover, :focus {
+    border: 2px solid #66bfbf !important;
+}
+
+.ButtonsContainerDiv{
+    position: fixed;
+    width: calc(100%);
+    /* top:  80px; */
+    bottom: 0px;
+}
+
+.SwipingDIV{
+
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.9) 15%, rgba(0, 0, 0, 0.3) 35% , rgba(0, 0, 0, 0.01) 100%), url('../images/UserProfilePictures/IMG-20210915-WA0041_remastered.jpg') no-repeat;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(59%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.65))), url('../images/UserProfilePictures/IMG-20210915-WA0041_remastered.jpg') no-repeat;
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.9) 15%, rgba(0, 0, 0, 0.3) 35% , rgba(0, 0, 0, 0.01) 100%), url('../images/UserProfilePictures/IMG-20210915-WA0041_remastered.jpg') no-repeat;
+    background: -o-linear-gradient(top, rgba(0, 0, 0, 0.9) 15%, rgba(0, 0, 0, 0.3) 35% , rgba(0, 0, 0, 0.01) 100%), url('../images/UserProfilePictures/IMG-20210915-WA0041_remastered.jpg') no-repeat;
+    background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.9) 15%, rgba(0, 0, 0, 0.3) 35% , rgba(0, 0, 0, 0.01) 100%), url('../images/UserProfilePictures/IMG-20210915-WA0041_remastered.jpg') no-repeat;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 15%, rgba(0, 0, 0, 0.3) 35% , rgba(0, 0, 0, 0.01) 100%), url('../images/UserProfilePictures/IMG-20210915-WA0041_remastered.jpg') no-repeat;
+
+    /* background: linear-gradient( to bottom,black 10%,white , white), url('../images/UserProfilePictures/IMG-20210915-WA0041_remastered.jpg') no-repeat; */
+    /* height: 200px; */
+
+    /* background-image: url("")  ;  */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100vh;
+}
+.MatchedDiv{
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.9) 15%, rgba(0, 0, 0, 0.3) 35% , rgba(0, 0, 0, 0.01) 100%), url('../images/UserProfilePictures/HootsTwo.jpg') no-repeat;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(59%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.65))), url('../images/UserProfilePictures/HootsTwo.jpg') no-repeat;
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.9) 15%, rgba(0, 0, 0, 0.3) 35% , rgba(0, 0, 0, 0.01) 100%), url('../images/UserProfilePictures/HootsTwo.jpg') no-repeat;
+    background: -o-linear-gradient(top, rgba(0, 0, 0, 0.9) 15%, rgba(0, 0, 0, 0.3) 35% , rgba(0, 0, 0, 0.01) 100%), url('../images/UserProfilePictures/HootsTwo.jpg') no-repeat;
+    background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.9) 15%, rgba(0, 0, 0, 0.3) 35% , rgba(0, 0, 0, 0.01) 100%), url('../images/UserProfilePictures/HootsTwo.jpg') no-repeat;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 15%, rgba(0, 0, 0, 0.3) 35% , rgba(0, 0, 0, 0.01) 100%), url('../images/UserProfilePictures/HootsTwo.jpg') no-repeat;
+
+    /* background: linear-gradient( to bottom,black 10%,white , white), url('../images/UserProfilePictures/IMG-20210915-WA0041_remastered.jpg') no-repeat; */
+    /* height: 200px; */
+
+    /* background-image: url("")  ;  */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100vh;
+}
+
+.SliderDIVStyle{
+    position: fixed;
+    width: calc(100%);
+    /* top:  80px; */
+    bottom: 100px;
+}

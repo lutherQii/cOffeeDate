@@ -16,13 +16,15 @@ const SLIDER = document.getElementById('slider-Div');
 const ICO_LEFT = document.getElementById('IcoLeft');
 const ICO_RIGHT = document.getElementById('IcoRight');
 
+const SLIDER_range = document.getElementById("myRange");
+
 WIN_SWIPING.style.display = WIN_MATCHING.style.display = WIN_MORE.style.display = SLIDER.style.display = "none";
 
 function changeMenu(menuName) {
     WIN_SWIPING.style.display = WIN_MATCHING.style.display = WIN_PROFILE.style.display = SLIDER.style.display = "none";
 
-    ICO_LEFT.classList.remove("fa-times","fa-arrow-left");
-    ICO_RIGHT.classList.remove("fa-check","fa-arrow-right")
+    ICO_LEFT.classList.remove("fa-times", "fa-arrow-left");
+    ICO_RIGHT.classList.remove("fa-check", "fa-arrow-right")
 
     IC_COFFEE.classList.add('bicRed');
     IC_HEART.classList.add('bicRed');
@@ -42,7 +44,7 @@ function changeMenu(menuName) {
         IC_COFFEE.classList.add('bicWhite');
     }
     if (menuName == 'Matching' || menuName == 2) {
-        WIN_MATCHING.style.display = SLIDER.style.display ="block";
+        WIN_MATCHING.style.display = SLIDER.style.display = "block";
 
         ICO_LEFT.classList.add("fa-arrow-left");
         ICO_RIGHT.classList.add("fa-arrow-right");
@@ -70,4 +72,17 @@ function toggleMoreLessInfo() {
         LESSMORE.innerHTML = 'LESS INFO';
     }
 
+}
+
+
+SLIDER_range.oninput = function () {
+    // console.log(this.value);
+    // let answer = this.value == 3 ? 'You Said Yes' : 'You Said No';
+    ICO_RIGHT.style.display = ICO_LEFT.style.display = "block";
+
+    // console.log(ICO_LEFT);
+    if (this.value == 1)
+        ICO_LEFT.style.display = "none";
+    if (this.value == 3)
+        ICO_RIGHT.style.display = "none";
 }

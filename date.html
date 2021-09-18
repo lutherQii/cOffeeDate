@@ -82,42 +82,42 @@
 <body>
     <div id="slider-Div" class="SliderDIVStyle">
         <div style="position: relative;">
-         <div class="row">
-             <div class="col">
-                 <div class="customRangeContainer">
-                     <div class="SliderNo">
-                         <i id="IcoLeft" class="fas fa-times fa-3x"></i>
-                     </div>
-                     <div class="SliderYes">
-                         <i  id="IcoRight" class="fas fa-check fa-3x"></i>
-                     </div>
-                     <div class="slidecontainer">
-                         <input type="range" min="1" max="3" value="2" class="slider" id="myRange">
-                     </div>
-             
-                 </div>
-             </div>
-             <br />
-         </div>
+            <div class="row">
+                <div class="col">
+                    <div class="customRangeContainer">
+                        <div class="SliderNo">
+                            <i id="IcoLeft" class="fas fa-times fa-3x"></i>
+                        </div>
+                        <div class="SliderYes">
+                            <i id="IcoRight" class="fas fa-check fa-3x"></i>
+                        </div>
+                        <div class="slidecontainer">
+                            <input type="range" min="1" max="3" value="2" class="slider" id="myRange">
+                        </div>
+
+                    </div>
+                </div>
+                <br />
+            </div>
         </div>
-     </div>
+    </div>
     <div id="ButtonsContainer" class="ButtonsContainerDiv">
         <div style="position: relative;">
             <div class="container">
                 <div class="row">
                     <div class="col d-flex justify-content-evenly smallerSideMargins">
                         <a onclick="changeMenu(1)">
-                            <div class="bottomIconContainer bicRed" id="CoffeeIcon">
+                            <div class="bottomIconContainer bicRed click-css-event" id="CoffeeIcon">
                                 <i class="fas fa-coffee fa-2x"></i>
                             </div>
                         </a>
                         <a onclick="changeMenu(2)">
-                            <div class="bottomIconContainer bicRed" id="HeartIcon">
+                            <div class="bottomIconContainer bicRed click-css-event" id="HeartIcon">
                                 <i class="fas fa-heart fa-2x"></i>
                             </div>
                         </a>
                         <a onclick="changeMenu(3)">
-                            <div class="bottomIconContainer bicWhite" id="UserIcon">
+                            <div class="bottomIconContainer bicWhite click-css-event" id="UserIcon">
                                 <i class="fas fa-user fa-2x"></i>
                             </div>
                         </a>
@@ -143,6 +143,46 @@
             </div>
         </div>
     </div>
+    <div class="popup-match" id="PopupMatch">
+        <div style="position: relative;">
+            <div class="container">
+                <div class="row">
+                    <div class="col" style="text-align: center;">
+                        <span class="RedText">YOU FOUND A MATCH!</span>
+                    </div>
+                </div>
+                <div class="row" style="height: 90px;">
+                    <div class="col-6 profileImageRow">
+                        <img src="assets/images/Mila.jpg" class="profileImageMatch under">
+                    </div>
+                    <div class="col-6 profileImageRow">
+                        <img src="assets/images/Mila.jpg" class="profileImageMatch over">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <a onclick="answerMatch('StartChat')" >
+                            <div class="mainBtn redButton popupButton click-css-event">
+                                <span class="whiteText">Start Chatting</span>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <a onclick="answerMatch('MaybeLater')" >
+                            <div class="mainBtn greyButton popupButton click-css-event">
+                                <span class="whiteText">Maybe Later</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <br />
+            </div>
+        </div>
+    </div>
+
     <div id="Swiping" class="SwipingDIV">
         <br />
         <div class="container">

@@ -18,7 +18,9 @@ const ICO_RIGHT = document.getElementById('IcoRight');
 
 const SLIDER_range = document.getElementById("myRange");
 
-WIN_SWIPING.style.display = WIN_MATCHING.style.display = WIN_MORE.style.display = SLIDER.style.display = "none";
+const POPUP_MATCH_DIV = document.getElementById('PopupMatch');
+
+WIN_SWIPING.style.display = WIN_MATCHING.style.display = WIN_MORE.style.display = SLIDER.style.display = POPUP_MATCH_DIV.style.display = "none";
 
 function changeMenu(menuName) {
     WIN_SWIPING.style.display = WIN_MATCHING.style.display = WIN_PROFILE.style.display = SLIDER.style.display = "none";
@@ -74,15 +76,39 @@ function toggleMoreLessInfo() {
 
 }
 
+function answerMatch(answer) {
+    SLIDER_range.value = 2;
+    ICO_RIGHT.style.display = ICO_LEFT.style.display = "block";
+    console.log(answer)
+
+    setTimeout(function () {
+        POPUP_MATCH_DIV.style.display = "none";
+        document.getElementById("myRange").disabled = false;
+    }, 250);
+
+}
 
 SLIDER_range.oninput = function () {
     // console.log(this.value);
     // let answer = this.value == 3 ? 'You Said Yes' : 'You Said No';
     ICO_RIGHT.style.display = ICO_LEFT.style.display = "block";
 
+    if(this.value == 3){
+        document.getElementById("myRange").disabled = true;
+    }
     // console.log(ICO_LEFT);
     if (this.value == 1)
         ICO_LEFT.style.display = "none";
-    if (this.value == 3)
+    if (this.value == 3) {
         ICO_RIGHT.style.display = "none";
+        POPUP_MATCH_DIV.style.display = "block"
+    }
 }
+
+
+// var clickAnimations = document.getElementsByClassName('click-css-event'),
+//     pfx = ["webkit", "moz", "MS", "o", ""],
+//     hovered = false;
+
+// console.log("HWiwefwfiuwefh");
+// console.log(clickAnimations);

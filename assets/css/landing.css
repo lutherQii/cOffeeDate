@@ -1,0 +1,93 @@
+body {
+    background-image: url("../images/LandingPage/Coffeedate_landingpage_background.jpg") !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* height: 200px; */
+    /* width: calc(100vw); */
+}
+
+.img-logo {
+    width: 160px;
+}
+
+.half-screen {
+    width: 65%;
+}
+
+.bold {
+    font-weight: 100%;
+}
+
+.demo-button {
+    color: #ffffff;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+}
+
+.absolute-animation {
+    position: fixed;
+    border-radius: 10px;
+    /* border: 1px solid #056674; */
+    /* width: 240px; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.animated-part {
+    animation: cssAnimation 10s infinite;
+}
+
+@keyframes cssAnimation {
+    0% {
+        transform: scale(1.0);
+    }
+    10% {
+        transform: scale(0.9);
+    }
+    20% {
+        transform: scale(0.8);
+    }
+    25% {
+        transform: scale(1.0);
+    }
+    30% {
+        transform: scale(1.25);
+    }
+    35% {
+        transform: scale(1.0);
+    }
+    40% {
+        -webkit-transform: rotate(180deg);
+    }
+    45% {
+        -webkit-transform: rotate(180deg);
+    }
+    50% {
+        transform: translateY(100px);
+    }
+    60% {
+        transform: translateY(0);
+    }
+    65% {
+        transform: scale(1.0);
+    }
+    70% {
+        transform: scale(1.25);
+    }
+    75% {
+        transform: scale(1.0);
+    }
+    80%{
+        transform: translateX(-150px);
+        -webkit-transform: rotate(-95deg);
+    }
+    90% {
+        transform: translateY(100px);
+    }
+    100% {
+        transform: translateY(0);
+        -webkit-transform: rotate(360deg);
+    }
+}

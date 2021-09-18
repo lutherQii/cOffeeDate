@@ -92,11 +92,11 @@
 
         <div>
 
-            <div class="row" id="mainOptionsDIV">
+            <div class="row" id="mainOptionsDIV" >
                 <div class="col-sm-3">
                     <a href="javascript:loginClick()" style="text-decoration: none;">
                         <div class="mainBtn redButton">
-                            <span class="whiteText">REGISTER</span>
+                            <span class="whiteText">LOGIN</span>
                         </div>
                     </a>
                 </div>
@@ -106,9 +106,135 @@
                 <div class="col-sm-3">
                     <a href="javascript:registerClick()" style="text-decoration: none;">
                         <div class="mainBtn redButton">
-                            <span class="whiteText">LOGIN</span>
+                            <span class="whiteText">REGISTER</span>
                         </div>
                     </a>
+                </div>
+            </div>
+            <div class="row" id="loginDIV" style="display: none;">
+                <div class="col-12" style="text-align: center;">
+                    <h1>LOGIN</h1>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        <input type="text" class="form-control custTextBox" id="TxtUsername"
+                            aria-describedby="emailHelp" placeholder="Username">
+                    </div>
+                </div>
+                <br>
+                <div class="col-12">
+                    <div class="form-group">
+                        <input type="password" class="form-control custTextBox" id="TxtPassword"
+                            aria-describedby="emailHelp" placeholder="Password">
+                    </div>
+                </div>
+                <div class="col-12" style="position: absolute; bottom: 20px">
+                    <div class="col-sm-3 ">
+                        <a href="javascript:loginNextClick()" style="text-decoration: none;">
+                            <div class="d-flex justify-content-center">
+                                <div class="redButtonRound">
+                                    <span class="whiteText">NEXT</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="registerStep1Div" style="display: none;">
+                <div class="col-12" style="text-align: center;">
+                    <br>
+                    <h1>REGISTER</h1>
+                    <br>
+                </div>
+                <div class="col-12">
+                    <table style="width: 100%;">
+                        <tr style="width: 100%;">
+                            <td style="width: 50%;">
+                                <a href="javascript:refisterAppleClick()" style="text-decoration: none;">
+                                    <div class="mainBtn iconOutline">
+                                        <i class="fab fa-apple fa-3x iconsColor"></i>
+                                    </div>
+                                </a>
+                            </td>
+                            <td style="width: 50%;">
+                                <a href="javascript:refisterFBClick()" style="text-decoration: none;">
+                                    <div class="mainBtn iconOutline">
+                                        <i class="fab fa-facebook-f fa-3x iconsColor"></i>
+                                    </div>
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+
+
+                </div>
+                <br>
+                <div class="col-12">
+                    <div class="form-group">
+                        <input type="text" class="form-control custTextBox" id="TxtRegisterUserName"
+                            aria-describedby="emailHelp" placeholder="Username">
+                    </div>
+                </div>
+                <br>
+                <div class="col-12">
+                    <div class="form-group">
+                        <input type="email" class="form-control custTextBox" id="TxtRegisterEmail"
+                            aria-describedby="emailHelp" placeholder="Email">
+                    </div>
+                </div>
+                <br>
+                <div class="col-12">
+                    <div class="form-group">
+                        <input type="tel" class="form-control custTextBox" id="TxtRegisterCell"
+                            aria-describedby="emailHelp" placeholder="Cell No">
+                    </div>
+                </div>
+                <br>
+                <div class="col-12">
+                    <div class="form-group">
+                        <input type="password" class="form-control custTextBox" id="TxtRegisterPassword"
+                            aria-describedby="emailHelp" placeholder="Password">
+                    </div>
+                </div>
+                <div class="col-12" style="position: absolute; bottom: 20px">
+                    <div class="col-sm-3 ">
+                        <a href="javascript:registerNextClick()" style="text-decoration: none;">
+                            <div class="d-flex justify-content-center">
+                                <div class="redButtonRound">
+                                    <span class="whiteText">NEXT</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="registerOTPDiv" style="display: none;">
+                <h1>PLEASE ENTER THE ONE TIME PIN SENT TO YOUR NUMBER</h1>
+                <br>
+                <div class="col-12">
+                    <div class="form-group">
+                        <input type="number" class="form-control custTextBox" id="TxtOTP" aria-describedby="emailHelp"
+                            placeholder="_ _ _ _">
+                    </div>
+                </div>
+                <br>
+                <div class="col-md-3">
+                    <a href="javascript:resendOTPClick()" style="text-decoration: none;">
+                        <div class=" otpButton d-flex justify-content-center">
+                            <span>RESEND OTP</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-12" style="position: absolute; bottom: 20px">
+                    <div class="col-sm-3 ">
+                        <a href="javascript:otpNextClick()" style="text-decoration: none;">
+                            <div class="d-flex justify-content-center">
+                                <div class="redButtonRound">
+                                    <span class="whiteText">NEXT</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
 

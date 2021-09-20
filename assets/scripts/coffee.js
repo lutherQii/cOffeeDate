@@ -20,42 +20,7 @@ function registerClick() {
     registerStep1Div.style.display = "block";
 }
 async function loginNextClick() {
-    // alert('Username: ' + txtUserName.value + ' Pasword: ' + txtPassword.value);
-    // const response = await fetch("http://localhost:3000/user/login", {
-    //     method: 'POST',
-    //     headers: {
-    //         'Accept': '*/*',
-    //         'Content-Type': 'application/x-www-form-urlencoded',
-    //         'Connection': 'keep-alive',
-    //         'User-Agent': 'cOffeeDate/0.1'
-    //     },
-    //     body: `{
-    //         "username": "`+ txtUserName.value + `",
-    //         "password": "`+ txtPassword.value + `"
-    //       }`,
-    // });
-
-    // response.json().then(data => {
-    //     console.log('Get Response')
-    //     console.log(data);
-    // });
-
-    // fetch('http://localhost:3000/user/login', {
-    //     method: 'POST',
-    //     headers: {
-    //         'Accept': '*/*',
-    //         'Content-Type': 'application/x-www-form-urlencoded',
-    //         'Connection': 'keep-alive',
-    //         'User-Agent': 'cOffeeDate/0.1'
-    //     },
-    //     body: `{
-    //         "username": "`+ txtUserName.value + `",
-    //         "password": "`+ txtPassword.value + `"
-    //       }`,
-    // })
-    //     .then(response => response.json())
-    //     .then(data => console.log(data));
-
+ 
     var details = {
         'username': txtUserName.value,
         'password': txtPassword.value

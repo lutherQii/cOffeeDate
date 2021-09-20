@@ -20,14 +20,11 @@ function registerClick() {
     registerStep1Div.style.display = "block";
 }
 async function loginNextClick() {
- 
+
     var details = {
         'username': txtUserName.value,
         'password': txtPassword.value
     };
-
-
-
     var formBody = [];
     for (var property in details) {
         var encodedKey = encodeURIComponent(property);
@@ -47,11 +44,12 @@ async function loginNextClick() {
     })
         .then(response => response.json())
         .then(data => {
-            if(data.status == 'success'){
-                localStorage.setItem("userToke", data.token);
+            if (data.status == 'success') {
+                console.log(data.token);
+                localStorage.setItem("userToken", data.token);
                 window.location.href = 'date.html';
 
-            }else {
+            } else {
                 alert('Could not log in')
             }
         });

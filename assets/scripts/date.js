@@ -20,6 +20,22 @@ const SLIDER_range = document.getElementById("myRange");
 
 const POPUP_MATCH_DIV = document.getElementById('PopupMatch');
 
+const token = localStorage.getItem('userToken');
+if (token == null)
+    window.location.href = 'coffee.html';
+fetch('http://192.168.8.13:3000/user/data', {
+    headers: {
+        Authorization: `Bearer ${token}`,
+
+    }
+})
+    .then(res => res.json())
+    .then(json => {
+        console.log(json)
+    });
+
+
+
 WIN_SWIPING.style.display = WIN_MATCHING.style.display = WIN_MORE.style.display = SLIDER.style.display = POPUP_MATCH_DIV.style.display = "none";
 
 function changeMenu(menuName) {
@@ -93,7 +109,7 @@ SLIDER_range.oninput = function () {
     // let answer = this.value == 3 ? 'You Said Yes' : 'You Said No';
     ICO_RIGHT.style.display = ICO_LEFT.style.display = "block";
 
-    if(this.value == 3){
+    if (this.value == 3) {
         document.getElementById("myRange").disabled = true;
     }
     // console.log(ICO_LEFT);

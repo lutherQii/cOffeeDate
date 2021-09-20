@@ -23,7 +23,6 @@ module.exports = (app) => {
 
             });
         } else {
-            console.log('ERROR: Could not log in');
             res.json({
                 'status': 'error'
             })
@@ -44,7 +43,6 @@ module.exports = (app) => {
                     message: 'Successful log in',
                     authorizedData
                 });
-                console.log('SUCCESS: Connected to protected route');
             }
         })
     });

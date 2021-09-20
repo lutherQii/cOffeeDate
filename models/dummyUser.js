@@ -1,10 +1,20 @@
 module.exports = {
     username: 'Luther',
     password: '1234',
-    firstName: 'Jon',
-    lastName: 'Doe',
-    dob: '12/11/1991',
-    email: 'user@gmail.com',
+    firstName: 'Luther',
+    lastName: 'Olivier',
+    dob: '16/12/1997',
+    email: 'lutherol1@gmail.com',
+    location:'Pretoria',
+    jobTitle:'Sexy Model',
+    interests:[
+        'Cars',
+        'Guitars',
+        'Travel'
+    ],
+    intentions:'Finding a car coffee partner',
+    sexualOrientation:'straigth',
+    biography:'I am a go easy lover pizza eater, fast car mean car beater B-)',
     address: {
         street: '555 Bayshore Blvd',
         city: 'Tampa',

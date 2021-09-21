@@ -20,6 +20,18 @@ function registerClick() {
     registerStep1Div.style.display = "block";
 }
 async function loginNextClick() {
+    var valid = true;
+    if (txtUserName.value.length == 0) {
+        valid = false;
+        console.log('Username Required');
+    }
+    if (txtPassword.value.length == 0) {
+        console.log('Password Required');
+        valid = false;
+    }
+    if (!valid) {
+        return;
+    }
 
     var details = {
         'username': txtUserName.value,
@@ -56,16 +68,104 @@ async function loginNextClick() {
 
 }
 function registerNextClick() {
-    alert('Username: ' + txtRegisterUsername.value + ' Email: ' + txtRegisterEmail.value
-        + ' Cell: ' + txtRegisterCell.value + ' Password: ' + txtRegisterPassword.value);
-    registerStep1Div.style.display = "none";
-    registerOTPDiv.style.display = "block";
+    valid = true;
+    if(txtRegisterUsername.value.length == 0)
+    {
+        valid = false;
+        console.log('Username Required');
+        //alert('test');
+    }
+    if(txtRegisterEmail.value.length == 0)
+    {
+        valid = false;
+        console.log('Email Required');
+    }
+    else if(!ValidateEmail(txtRegisterEmail.value))
+    {
+        valid = false;
+        console.log('Invalid Email');
+    }
+    if(txtRegisterCell.value.length == 0)
+    {
+        valid = false;
+        console.log('Cell No Required');
+    }
+    else if(!validateCellNo(txtRegisterCell.value))
+    {
+        valid = false;
+        console.log('Invalid Cell No');
+    }
+    if (txtRegisterPassword.value.length == 0) 
+    {
+        valid = false;
+        console.log('Password required');
+    }
+    else if (!ValidatePasswordStrength(txtRegisterPassword.value)) 
+    {
+        valid = false;
+        console.log('Password must be at least 8 characters,have one uppercase and lowercase letter, one digit and one special character.');
+    }
+    if(valid)
+    {
+        registerStep1Div.style.display = "none";
+        registerOTPDiv.style.display = "block";
+    }
+    //alert('Username: ' + txtRegisterUsername.value + ' Email: ' + txtRegisterEmail.value
+     //   + ' Cell: ' + txtRegisterCell.value + ' Password: ' + txtRegisterPassword.value);
+}
+function ValidateEmail(mail) 
+{
+ if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
+  {
+    return (true);
+  }
+    return (false);
+}
+function validateCellNo(number) {
+
+var trimmed = number.replace(/\s/g, '');
+
+var regex = /^0(6|7|8){1}[0-9]{1}[0-9]{7}$/;
+
+if (regex.test(trimmed) === true) {
+    return(true);
+}
+return(false);
+}
+function ValidatePasswordStrength(PasswordParameter) {
+    let strongPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})')
+let mediumPassword = new RegExp('((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))')
+    if(strongPassword.test(PasswordParameter)) {
+        //strengthBadge.style.backgroundColor = "green";
+        //strengthBadge.textContent = 'Strong';
+        return true;
+    } else if(mediumPassword.test(PasswordParameter)) {
+        //strengthBadge.style.backgroundColor = 'blue';
+        //strengthBadge.textContent = 'Medium';
+        return true;
+    } else {
+        //strengthBadge.style.backgroundColor = 'red';
+        //strengthBadge.textContent = 'Weak';
+        return false;
+    }
+    return false;
 }
 function resendOTPClick() {
     alert('Resend OTP');
 }
 function otpNextClick() {
-    alert('OTP: ' + txtOTP.value);
+    if(txtOTP.value.length == 0)
+    {
+        console.log('OTP Required');
+    }
+    else if (txtOTP.value.length != 4) 
+    {
+        'Invalid OTP';
+    }
+    else
+    {
+        alert('OTP: ' + txtOTP.value);
+    }
 }
 function refisterFBClick() {
     alert('Register FB');

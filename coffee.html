@@ -82,7 +82,7 @@
 
     <div class="container" style="height: 100vh;">
         <br />
-        <div class="row">
+        <div class="row" style="position: absolute;">
             <div class="col">
                 <img src="assets/images/cofee_date_logo-1.png" class="logoImage">
             </div>
@@ -92,51 +92,55 @@
 
         <div>
 
-            <div class="row" id="mainOptionsDIV" >
-                <div class="col-sm-3">
-                    <a href="javascript:loginClick()" style="text-decoration: none;">
-                        <div class="mainBtn redButton">
-                            <span class="whiteText">LOGIN</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm">
-                    <br />
-                </div>
-                <div class="col-sm-3">
-                    <a href="javascript:registerClick()" style="text-decoration: none;">
-                        <div class="mainBtn redButton">
-                            <span class="whiteText">REGISTER</span>
-                        </div>
-                    </a>
+            <div class="row" id="mainOptionsDIV">
+                <div class="vertical-center">
+                    <div class="col-sm-3">
+                        <a href="javascript:loginClick()" style="text-decoration: none;">
+                            <div class="mainBtn redButton">
+                                <span class="whiteText">LOGIN</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-sm">
+                        <br />
+                    </div>
+                    <div class="col-sm-3">
+                        <a href="javascript:registerClick()" style="text-decoration: none;">
+                            <div class="mainBtn redButton">
+                                <span class="whiteText">REGISTER</span>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="row" id="loginDIV" style="display: none;">
-                <div class="col-12" style="text-align: center;">
-                    <h1>LOGIN</h1>
-                </div>
-                <div class="col-12">
-                    <div class="form-group">
-                        <input type="text" class="form-control custTextBox" id="TxtUsername"
-                            aria-describedby="emailHelp" placeholder="Username">
+                <div class="vertical-center">
+                    <div class="col-12" style="text-align: center;">
+                        <h1>LOGIN</h1>
                     </div>
-                </div>
-                <br>
-                <div class="col-12">
-                    <div class="form-group">
-                        <input type="password" class="form-control custTextBox" id="TxtPassword"
-                            aria-describedby="emailHelp" placeholder="Password">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <input type="text" class="form-control custTextBox" id="TxtUsername"
+                                aria-describedby="emailHelp" placeholder="Username">
+                        </div>
                     </div>
-                </div>
-                <div class="col-12" style="position: absolute; bottom: 20px">
-                    <div class="col-sm-3 ">
-                        <a href="javascript:loginNextClick()" style="text-decoration: none;">
-                            <div class="d-flex justify-content-center">
-                                <div class="redButtonRound">
-                                    <span class="whiteText">NEXT</span>
+                    <br>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <input type="password" class="form-control custTextBox" id="TxtPassword"
+                                aria-describedby="emailHelp" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="col-12" style="position: absolute; bottom: 20px">
+                        <div class="col-sm-3 ">
+                            <a href="javascript:loginNextClick()" style="text-decoration: none;">
+                                <div class="d-flex justify-content-center">
+                                    <div class="redButtonRound">
+                                        <span class="whiteText">NEXT</span>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -165,8 +169,6 @@
                             </td>
                         </tr>
                     </table>
-
-
                 </div>
                 <br>
                 <div class="col-12">
@@ -198,16 +200,17 @@
                 </div>
                 <div class="col-12" style="position: absolute; bottom: 20px">
                     <div class="col-sm-3 ">
-                        <a href="javascript:registerNextClick()" style="text-decoration: none;">
-                            <div class="d-flex justify-content-center">
-                                <div class="redButtonRound">
+                        <div class="d-flex justify-content-center">
+                            <div class="redButtonRound">
+                                <a href="javascript:registerNextClick()" style="text-decoration: none;">
                                     <span class="whiteText">NEXT</span>
-                                </div>
+                                </a>
                             </div>
-                        </a>
+                        </div>
                     </div>
                 </div>
             </div>
+
             <div class="row" id="registerOTPDiv" style="display: none;">
                 <h1>PLEASE ENTER THE ONE TIME PIN SENT TO YOUR NUMBER</h1>
                 <br>
@@ -224,6 +227,9 @@
                             <span>RESEND OTP</span>
                         </div>
                     </a>
+                </div>
+                <div class="col-12">
+                    <span class="text-danger" id="spnOTPErrorText"></span>
                 </div>
                 <div class="col-12" style="position: absolute; bottom: 20px">
                     <div class="col-sm-3 ">

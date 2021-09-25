@@ -340,6 +340,14 @@ a{
     animation-fill-mode: forwards;
 }
 
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
 @keyframes cssAnimation {
     0% {
         transform: scale(1.0);

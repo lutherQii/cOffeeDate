@@ -20,19 +20,54 @@ const SLIDER_range = document.getElementById("myRange");
 
 const POPUP_MATCH_DIV = document.getElementById('PopupMatch');
 
+const GB_USERINFO = {
+    'fullname': document.getElementById('TxtFullName'),
+    'location': document.getElementById('TxtLocation'),
+    'age': document.getElementById('TxtAge'),
+    'jobTitle': document.getElementById('TxtJobTitle'),
+    'interests': document.getElementById('TxtInterests'),
+
+    'intentions': document.getElementById('TxtIntentions'),
+    'orientation': document.getElementById('TxtOrientation'),
+    'biography': document.getElementById('TxtBiography'),
+    'address': document.getElementById('TxtAddress'),
+
+}
+
 const token = localStorage.getItem('userToken');
 if (token == null)
     window.location.href = 'coffee.html';
 fetch('http://192.168.8.13:3000/user/data', {
     headers: {
         Authorization: `Bearer ${token}`,
-
     }
 })
     .then(res => res.json())
     .then(json => {
-        console.log(json)
-    });
+        // global_USERINFO = json;
+     console.log(json);
+        var userLGDIn = json.userInfo[0];
+        localStorage.setItem('UserInfoLI', JSON.stringify(userLGDIn));
+        console.log(userLGDIn);
+
+
+        GB_USERINFO.fullname.value = userLGDIn.Name!=null?userLGDIn.Name:''+' ' +userLGDIn.Surname!=null?userLGDIn.Surname:'';
+        GB_USERINFO.location.placeholder = 'Not Provided';
+
+        GB_USERINFO.age.value = 23;
+        GB_USERINFO.jobTitle.value = 'Programmer';
+
+        GB_USERINFO.intentions.value = userLGDIn.Intentions!=null?userLGDIn.Intentions:'';
+        GB_USERINFO.biography.value = userLGDIn.Biography!=null?userLGDIn.Biography:''
+
+
+    })
+    // .catch(err=> {
+
+    //     localStorage.removeItem('userVARRegister'); 
+    //     localStorage.removeItem('userToken'); 
+    //     window.location.href = 'coffee.html';
+    // });
 
 
 

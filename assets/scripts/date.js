@@ -45,29 +45,37 @@ fetch('http://192.168.8.13:3000/user/data', {
     .then(res => res.json())
     .then(json => {
         // global_USERINFO = json;
-     console.log(json);
+        console.log(json);
+
+        if (json.Status != null)
+            if (json.Status == 403) {
+
+                window.localStorage.removeItem('userToken');
+                window.location.href = 'coffee.html';
+            }
+
         var userLGDIn = json.userInfo[0];
         localStorage.setItem('UserInfoLI', JSON.stringify(userLGDIn));
         console.log(userLGDIn);
 
 
-        GB_USERINFO.fullname.value = userLGDIn.Name!=null?userLGDIn.Name:''+' ' +userLGDIn.Surname!=null?userLGDIn.Surname:'';
+        GB_USERINFO.fullname.value = userLGDIn.Name != null ? userLGDIn.Name : '' + ' ' + userLGDIn.Surname != null ? userLGDIn.Surname : '';
         GB_USERINFO.location.placeholder = 'Not Provided';
 
         GB_USERINFO.age.value = 23;
         GB_USERINFO.jobTitle.value = 'Programmer';
 
-        GB_USERINFO.intentions.value = userLGDIn.Intentions!=null?userLGDIn.Intentions:'';
-        GB_USERINFO.biography.value = userLGDIn.Biography!=null?userLGDIn.Biography:''
+        GB_USERINFO.intentions.value = userLGDIn.Intentions != null ? userLGDIn.Intentions : '';
+        GB_USERINFO.biography.value = userLGDIn.Biography != null ? userLGDIn.Biography : ''
 
 
     })
-    // .catch(err=> {
+// .catch(err=> {
 
-    //     localStorage.removeItem('userVARRegister'); 
-    //     localStorage.removeItem('userToken'); 
-    //     window.location.href = 'coffee.html';
-    // });
+//     localStorage.removeItem('userVARRegister'); 
+//     localStorage.removeItem('userToken'); 
+//     window.location.href = 'coffee.html';
+// });
 
 
 
@@ -124,7 +132,6 @@ function toggleMoreLessInfo() {
 
         LESSMORE.innerHTML = 'LESS INFO';
     }
-
 }
 
 function answerMatch(answer) {
@@ -155,6 +162,13 @@ SLIDER_range.oninput = function () {
         POPUP_MATCH_DIV.style.display = "block"
     }
 }
+
+function loadFile(event) {
+    var image = document.getElementById('output');
+    image.src = URL.createObjectURL(event.target.files[0]);
+
+    console.log(image.src);
+};
 
 
 // var clickAnimations = document.getElementsByClassName('click-css-event'),

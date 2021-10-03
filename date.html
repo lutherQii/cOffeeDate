@@ -161,7 +161,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <a onclick="answerMatch('StartChat')" >
+                        <a onclick="answerMatch('StartChat')">
                             <div class="mainBtn redButton popupButton click-css-event">
                                 <span class="whiteText">Start Chatting</span>
                             </div>
@@ -171,7 +171,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <a onclick="answerMatch('MaybeLater')" >
+                        <a onclick="answerMatch('MaybeLater')">
                             <div class="mainBtn greyButton popupButton click-css-event">
                                 <span class="whiteText">Maybe Later</span>
                             </div>
@@ -228,16 +228,25 @@
 
     <div id="Profile">
         <div class="container main-Container-Font">
-            <br />
+            <div style="display: block; margin-top: 6px;"></div>
             <div class="row">
                 <div class="col profileImageRow">
-                    <img src="assets/images/Mila.jpg" class="profileImage">
-                    <div class="greyButtonRound camIconCustom">
-                        <i class="fas fa-camera fa-2x whiteText "></i>
+                    <img src="assets/images/Mila.jpg" id="output" class="profileImage">
+
+                    <!-- <div class="profileImage" id="profileOutput"></div> -->
+
+                    <div class="greyButtonRound camIconCustom click-css-event">
+
+                        <p><label for="file" style="cursor: pointer;"><i
+                                    class="fas fa-camera fa-2x whiteText "></i></label></p>
                     </div>
+                    <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)"
+                            style="display: none;"></p>
+
                 </div>
             </div>
             <div id="BasicInfo">
+                <br />
                 <div class="row">
                     <div class="col">
                         <span class="whiteText">Full Name</span>
@@ -294,7 +303,8 @@
                     <div class="col">
                         <span class="whiteText">Sexual Orientation</span>
                         <div class="form-group">
-                            <input type="text" class="form-control custTextBox" id="TxtOrientation" placeholder="Straight">
+                            <input type="text" class="form-control custTextBox" id="TxtOrientation"
+                                placeholder="Straight">
                         </div>
                     </div>
                 </div>
@@ -313,7 +323,8 @@
                         <div class="form-group">
                             <!-- <input type="text"   id="TxtBiography"
                                 placeholder="I am a designer and an aspiring developer"> -->
-                                <textarea id="TxtBiography" name="TxtBiography" rows="4" cols="50" class="form-control custTextBoxBigger">
+                            <textarea id="TxtBiography" name="TxtBiography" rows="4" cols="50"
+                                class="form-control custTextBoxBigger">
                                     At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.
                                     </textarea>
                         </div>

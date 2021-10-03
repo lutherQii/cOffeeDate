@@ -126,9 +126,13 @@ module.exports = (app) => {
         jwt.verify(req.token, privateKey, (err, authorizedData) => {
             if (err) {
                 //If error send Forbidden (403)
-                console.log(err);
-                console.log('ERROR: Could not connect to the protected route');
-                res.sendStatus(403);
+                // console.log(err);
+                // console.log('ERROR: Could not connect to the protected route');
+                // res.sendStatus(403);
+                res.send({
+                    "Status": 403,
+                    "Message": err.Message
+                })
             } else {
                 //If token is successfully verified, we can send the autorized data 
                 // const queryIns = `
@@ -173,9 +177,13 @@ module.exports = (app) => {
     app.get('/user/demodata', checkToken, (req, res) => {
         jwt.verify(req.token, privateKey, (err, authorizedData) => {
             if (err) {
-                console.log(err);
-                console.log('ERROR: Could not connect to the protected route');
-                res.sendStatus(403);
+                // console.log(err);
+                // console.log('ERROR: Could not connect to the protected route');
+                // res.sendStatus(403);
+                res.send({
+                    "Status": 403,
+                    "Message": err.Message
+                })
             } else {
                 dbClient.query(`Select * from public."Login"`, (err, result) => {
                     if (!err) {
@@ -189,9 +197,13 @@ module.exports = (app) => {
     app.get('/user/userinfo', checkToken, (req, res) => {
         jwt.verify(req.token, privateKey, (err, authorizedData) => {
             if (err) {
-                console.log(err);
-                console.log('ERROR: Could not connect to the protected route');
-                res.sendStatus(403);
+                // console.log(err);
+                // console.log('ERROR: Could not connect to the protected route');
+                // res.sendStatus(403);
+                res.send({
+                    "Status": 403,
+                    "Message": err.Message
+                })
             } else {
                 dbClient.query(`select 
                 *
@@ -210,9 +222,13 @@ module.exports = (app) => {
     app.get('/user/userinterests', checkToken, (req, res) => {
         jwt.verify(req.token, privateKey, (err, authorizedData) => {
             if (err) {
-                console.log(err);
-                console.log('ERROR: Could not connect to the protected route');
-                res.sendStatus(403);
+                // console.log(err);
+                // console.log('ERROR: Could not connect to the protected route');
+                // res.sendStatus(403);
+                res.send({
+                    "Status": 403,
+                    "Message": err.Message
+                })
             } else {
                 dbClient.query(`
                 select 

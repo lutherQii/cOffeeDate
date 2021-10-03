@@ -1,6 +1,31 @@
 .profileImage {
-    width: 150px;
-    border-radius: 50%;
+    /* width: 150px;
+    border-radius: 50%; */
+
+    overflow: hidden;
+
+    object-fit: cover; 
+
+    width: 180px;
+    height: 180px;
+    /* background-image: url('http://strawberry-fest.org/wp-content/uploads/2012/01/Coca-Cola-logo.jpg'); */
+    background-size: cover;
+    display: block;
+    border-top-left-radius: 100px;
+    -webkit-border-top-left-radius: 100px;
+    -moz-border-top-left-radius: 100px;
+
+    border-top-right-radius: 100px;
+    -webkit-border-top-right-radius: 100px;
+    -moz-border-top-right-radius: 100px;
+
+    border-bottom-right-radius: 100px;
+    -webkit-border-bottom-right-radius: 100px;
+    -moz-border-bottom-right-radius: 100px;
+
+    border-bottom-left-radius: 100px;
+    -webkit-border-bottom-left-radius: 100px;
+    -moz-border-bottom-left-radius: 100px;
 }
 
 .profileImageMatch {
@@ -27,7 +52,7 @@
 
 .camIconCustom {
     position: absolute;
-    top: 140px;
+    top: 150px;
 }
 
 .main-Container-Font {

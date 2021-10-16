@@ -143,3 +143,6 @@
     margin-left: 0px !important;
     margin-right: 0px!important;
 }
+.matchingOverlay {
+    background: linear-gradient(to bottom, transparent 0%, black 100%);
+  }

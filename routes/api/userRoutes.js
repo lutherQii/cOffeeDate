@@ -219,6 +219,50 @@ module.exports = (app) => {
             }
         })
     });
+    app.get('/user/newMatches', checkToken, (req, res) => {
+        jwt.verify(req.token, privateKey, (err, authorizedData) => {
+            if (err) {
+                // console.log(err);
+                // console.log('ERROR: Could not connect to the protected route');
+                // res.sendStatus(403);
+                res.send({
+                    "Status": 403,
+                    "Message": err.Message
+                })
+            } else {
+
+                res.send([
+                    {
+                        "Name": "Cindy Vd Merwe"
+                    },
+                    {
+                        "Name": "Melany Olivier"
+                    },
+                    {
+                        "Name": "Stacy Frisby"
+                    },
+                    {
+                        "Name": "Ashleigh Tisdale"
+                    },
+                    {
+                        "Name": "Mila Kunis"
+                    }
+                ]);
+
+                //     dbClient.query(`select 
+                //     *
+                // from public."UserInfo" ui
+                //     inner join public."SexualOrientations" so on so."ID" = ui."OrientationID"
+                // where
+                //     ui."UserID" = 1`, (err, result) => {
+                //         if (!err) {
+                //             res.send(result.rows);
+                //         }
+                //     });
+                //     dbClient.end;
+            }
+        })
+    });
     app.get('/user/userinterests', checkToken, (req, res) => {
         jwt.verify(req.token, privateKey, (err, authorizedData) => {
             if (err) {
@@ -245,9 +289,7 @@ module.exports = (app) => {
             }
         })
     });
-
     dbClient.connect();
-
 }
 
 //Check to make sure header is not undefined, if so, return Forbidden (403)

@@ -20,6 +20,9 @@ const SLIDER_range = document.getElementById("myRange");
 
 const POPUP_MATCH_DIV = document.getElementById('PopupMatch');
 
+var _MatchingList;
+var _MatchingID = -1;
+
 const GB_USERINFO = {
     'fullname': document.getElementById('TxtFullName'),
     'location': document.getElementById('TxtLocation'),
@@ -105,6 +108,8 @@ function changeMenu(menuName) {
         IC_COFFEE.classList.add('bicWhite');
     }
     if (menuName == 'Matching' || menuName == 2) {
+
+
         WIN_MATCHING.style.display = SLIDER.style.display = "block";
 
         ICO_LEFT.classList.add("fa-arrow-left");
@@ -112,12 +117,45 @@ function changeMenu(menuName) {
 
         IC_HEART.classList.remove('bicRed');
         IC_HEART.classList.add('bicWhite');
+
+        loadNewNextMatches();
     }
     if (menuName == 'Profile' || menuName == 3) {
         WIN_PROFILE.style.display = "block";
         IC_USER.classList.remove('bicRed');
         IC_USER.classList.add('bicWhite');
     }
+}
+
+function loadNewNextMatches() {
+    fetch('http://192.168.8.13:3000/user/newMatches', {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        }
+    })
+        .then(res => res.json())
+        .then(json => {
+            _MatchingList = json;
+        })
+
+}
+
+function nextMatchingUser() {
+    _MatchingID++;
+    // document.getElementById('MatchedDiv').classList.remove('matching-overlay');
+    SLIDER_range.value = 2;
+    var element = document.getElementById("Matching");
+    element.classList.remove("matchingOverlay");
+    ICO_LEFT.style.display = "block";
+
+    if (_MatchingID > _MatchingList.length - 1) {
+        loadNewNextMatches();
+        _MatchingID = 0;
+    }
+
+    var mfpn = document.getElementById('MatchingFullName');
+    mfpn.innerHTML = _MatchingList[_MatchingID].Name;
+
 }
 
 function toggleMoreLessInfo() {
@@ -141,7 +179,7 @@ function answerMatch(answer) {
 
     setTimeout(function () {
         POPUP_MATCH_DIV.style.display = "none";
-        document.getElementById("myRange").disabled = false;
+        SLIDER_range.disabled = false;
     }, 250);
 
 }
@@ -152,11 +190,19 @@ SLIDER_range.oninput = function () {
     ICO_RIGHT.style.display = ICO_LEFT.style.display = "block";
 
     if (this.value == 3) {
-        document.getElementById("myRange").disabled = true;
+        SLIDER_range.disabled = true;
     }
     // console.log(ICO_LEFT);
-    if (this.value == 1)
+    if (this.value == 1) {
         ICO_LEFT.style.display = "none";
+
+        document.getElementById('Matching').classList.add('matchingOverlay');
+        setTimeout(function () {
+            nextMatchingUser();
+        }, 250);
+
+    }
+
     if (this.value == 3) {
         ICO_RIGHT.style.display = "none";
         POPUP_MATCH_DIV.style.display = "block"
@@ -165,9 +211,20 @@ SLIDER_range.oninput = function () {
 
 function loadFile(event) {
     var image = document.getElementById('output');
-    image.src = URL.createObjectURL(event.target.files[0]);
 
-    console.log(image.src);
+    console.log(event.target.files[0]);
+
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+        // use a regex to remove data url part
+        const base64String = reader.result
+        // .replace("data:", "")
+        // .replace(/^.+,/, "");
+        image.src = base64String;
+        console.log(image.src);
+    };
+    reader.readAsDataURL(file);
 };
 
 

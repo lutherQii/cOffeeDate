@@ -62,6 +62,7 @@ fetch('http://192.168.8.13:3000/user/data', {
         localStorage.setItem('UserInfoLI', JSON.stringify(userLGDIn));
         console.log(userLGDIn);
 
+        // document.getElementById('output').src = _UserProfileImage = userLGDIn.base64profilepicture;
 
         GB_USERINFO.fullname.value = userLGDIn.Name != null ? userLGDIn.Name : '' + ' ' + userLGDIn.Surname != null ? userLGDIn.Surname : '';
         GB_USERINFO.location.placeholder = 'Not Provided';
@@ -217,13 +218,15 @@ function loadFile(event) {
     reader.onloadend = () => {
         // use a regex to remove data url part
 
-        
+        var user = JSON.parse(localStorage.getItem('UserInfoLI'));
         _UserProfileImage = reader.result
         // .replace("data:", "")
         // .replace(/^.+,/, "");
         image.src = _UserProfileImage;
         var details = {
-            'base64image': _UserProfileImage
+            'base64image': _UserProfileImage,
+            'UserID':user.UserID,
+            'ImageType':'ProfilePicture'
         };
         var formBody = [];
         for (var property in details) {

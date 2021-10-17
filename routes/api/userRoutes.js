@@ -60,19 +60,45 @@ module.exports = (app) => {
     app.post('/user/updateProfileImage', (req, res, next) => {
 
         const { body } = req;
+        const { UserID } = body;
+        const { ImageType } = body;
         const { base64image } = body;
         var data =
             base64image
                 .replace("data:", "")
                 .replace(/^.+,/, "");
 
-        // let buff = new Buffer(data, 'base64');
-        const buff = Buffer.from(data, 'utf8');
-        fs.writeFileSync('stack-abuse-logo-out.png', buff);
+        // // let buff = new Buffer(data, 'base64');
+        // const buff = Buffer.from(data, 'utf8');
+        // fs.writeFileSync('stack-abuse-logo-out.png', buff);
+        // console.log(data);
 
-        res.json({
-            'status': 'success'
-        })
+        // const queryIns = `
+        // INSERT INTO public."ProfileImages"(
+        //     "UserID", "ImageType", "Base64Image")
+        //     VALUES ('`+ UserID + `','` + ImageType + `',decode('`+data+`, 'base64')');
+        // `;
+        
+        const queryIns = `
+        UPDATE public."UserInfo"
+            SET "ProfilePicture" = decode('`+data+`', 'base64')
+            WHERE 
+            "UserID" = `+UserID+`
+        `;
+        // console.log(queryIns);
+        dbClient.query(queryIns, (err, result) => {
+            if (!err) {
+                res.json({
+                    'status': 'success'
+                })
+            } else {
+                console.log(err)
+                res.json({
+                    'status': 'error'
+                })
+            }
+        });
+        dbClient.end;
     })
 
     app.post('/user/register', (req, res, next) => {
@@ -143,34 +169,35 @@ module.exports = (app) => {
         //verify the JWT token generated for the user
         jwt.verify(req.token, privateKey, (err, authorizedData) => {
             if (err) {
-                //If error send Forbidden (403)
-                // console.log(err);
-                // console.log('ERROR: Could not connect to the protected route');
-                // res.sendStatus(403);
                 res.send({
                     "Status": 403,
                     "Message": err.Message
                 })
             } else {
-                //If token is successfully verified, we can send the autorized data 
-                // const queryIns = `
-                // SELECT 
-                //     *
-                // FROM 
-                //     public."UserInfo"
-                // WHERE
-                //     "UserID" = ${authorizedData.user.ID}
-                // `;
-
-
                 const queryIns = `
                 SELECT 
-                    *  
+                    *,
+                    encode(ui."ProfilePicture",'base64') as base64ProfilePicture  
                 FROM
                 public."UserInfo" ui right join public."Login" lgn on ui."UserID" = lgn."ID"
                                 WHERE
                                 lgn."ID" = ${authorizedData.user.ID}
                 `
+
+                // SELECT 
+				// lgn."ID",
+				// lgn."Biography",
+				// Email,
+				// DOB,
+				// Intentions,
+				// Job Title,
+				
+                //    encode(ui."ProfilePicture",'base64') as base64ProfilePicture
+				 
+                // FROM
+                // public."UserInfo" ui right join public."Login" lgn on ui."UserID" = lgn."ID"
+                //                 WHERE
+                //                 lgn."ID" = 1
                 dbClient.query(queryIns, (err, result) => {
                     if (!err) {
                         // res.send(result.rows);

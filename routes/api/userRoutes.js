@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const fs = require('fs');
 
 const privateKey = 'YesThisISsxndeuARandomKey';
 
@@ -55,6 +56,23 @@ module.exports = (app) => {
             }
         });
         dbClient.end;
+    })
+    app.post('/user/updateProfileImage', (req, res, next) => {
+
+        const { body } = req;
+        const { base64image } = body;
+        var data =
+            base64image
+                .replace("data:", "")
+                .replace(/^.+,/, "");
+
+        // let buff = new Buffer(data, 'base64');
+        const buff = Buffer.from(data, 'utf8');
+        fs.writeFileSync('stack-abuse-logo-out.png', buff);
+
+        res.json({
+            'status': 'success'
+        })
     })
 
     app.post('/user/register', (req, res, next) => {
@@ -291,6 +309,7 @@ module.exports = (app) => {
     });
     dbClient.connect();
 }
+
 
 //Check to make sure header is not undefined, if so, return Forbidden (403)
 const checkToken = (req, res, next) => {

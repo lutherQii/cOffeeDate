@@ -186,91 +186,91 @@ function ValidatePasswordStrength(PasswordParameter) {
         return false;
     }
     return false;
-
-    function resendOTPClick() {
-        alert('Resend OTP');
-    }
-    function otpNextClick() {
-        if (txtOTP.value.length == 0) {
-            console.log('OTP Required');
-        }
-        // else if (txtOTP.value.length != 4) {
-        //     'Invalid OTP';
-        // }
-        // else {
-        //     alert('OTP: ' + txtOTP.value);
-        // }
-        var t = JSON.parse(localStorage.getItem("userVARRegister"));
-
-        var details = {
-            'username': t.username,
-            'password': t.password,
-            'email': t.email,
-            'OTP': txtOTP.value
-        };
-        var formBody = [];
-        for (var property in details) {
-            var encodedKey = encodeURIComponent(property);
-            var encodedValue = encodeURIComponent(details[property]);
-            formBody.push(encodedKey + "=" + encodedValue);
-        }
-        formBody = formBody.join("&");
-
-        console.log(formBody)
-
-        fetch('http://192.168.8.13:3000/user/checkOTP', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-            },
-            body: formBody
-        })
-            .then(response => response.json())
-            .then(data => {
-
-                if (data.length > 0) {
-                    var details = {
-                        'username': t.username,
-                        'password': t.password
-                    };
-                    var formBody = [];
-                    for (var property in details) {
-                        var encodedKey = encodeURIComponent(property);
-                        var encodedValue = encodeURIComponent(details[property]);
-                        formBody.push(encodedKey + "=" + encodedValue);
-                    }
-                    formBody = formBody.join("&");
-
-                    console.log(formBody)
-
-                    fetch('http://192.168.8.13:3000/user/login', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-                        },
-                        body: formBody
-                    })
-                        .then(response => response.json())
-                        .then(data => {
-
-                            console.log(data);
-
-                            if (data.status == 'success') {
-                                console.log(data.token);
-                                localStorage.setItem("userToken", data.token);
-                                window.location.href = 'date.html';
-
-                            } else {
-                                alert('Could not log in')
-                            }
-                        });
-                } else {
-                    document.getElementById('spnOTPErrorText').innerHTML = 'OTP Not valid';
-                }
-
-            });
-    }
 }
+function resendOTPClick() {
+    alert('Resend OTP');
+}
+function otpNextClick() {
+    if (txtOTP.value.length == 0) {
+        console.log('OTP Required');
+    }
+    // else if (txtOTP.value.length != 4) {
+    //     'Invalid OTP';
+    // }
+    // else {
+    //     alert('OTP: ' + txtOTP.value);
+    // }
+    var t = JSON.parse(localStorage.getItem("userVARRegister"));
+
+    var details = {
+        'username': t.username,
+        'password': t.password,
+        'email': t.email,
+        'OTP': txtOTP.value
+    };
+    var formBody = [];
+    for (var property in details) {
+        var encodedKey = encodeURIComponent(property);
+        var encodedValue = encodeURIComponent(details[property]);
+        formBody.push(encodedKey + "=" + encodedValue);
+    }
+    formBody = formBody.join("&");
+
+    console.log(formBody)
+
+    fetch('http://192.168.8.13:3000/user/checkOTP', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+        },
+        body: formBody
+    })
+        .then(response => response.json())
+        .then(data => {
+
+            if (data.length > 0) {
+                var details = {
+                    'username': t.username,
+                    'password': t.password
+                };
+                var formBody = [];
+                for (var property in details) {
+                    var encodedKey = encodeURIComponent(property);
+                    var encodedValue = encodeURIComponent(details[property]);
+                    formBody.push(encodedKey + "=" + encodedValue);
+                }
+                formBody = formBody.join("&");
+
+                console.log(formBody)
+
+                fetch('http://192.168.8.13:3000/user/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                    },
+                    body: formBody
+                })
+                    .then(response => response.json())
+                    .then(data => {
+
+                        console.log(data);
+
+                        if (data.status == 'success') {
+                            console.log(data.token);
+                            localStorage.setItem("userToken", data.token);
+                            window.location.href = 'date.html';
+
+                        } else {
+                            alert('Could not log in')
+                        }
+                    });
+            } else {
+                document.getElementById('spnOTPErrorText').innerHTML = 'OTP Not valid';
+            }
+
+        });
+}
+
 
 function refisterFBClick() {
     alert('Register FB');

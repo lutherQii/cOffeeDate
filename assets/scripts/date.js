@@ -22,6 +22,7 @@ const POPUP_MATCH_DIV = document.getElementById('PopupMatch');
 
 var _MatchingList;
 var _MatchingID = -1;
+var _UserProfileImage;
 
 const GB_USERINFO = {
     'fullname': document.getElementById('TxtFullName'),
@@ -211,18 +212,44 @@ SLIDER_range.oninput = function () {
 
 function loadFile(event) {
     var image = document.getElementById('output');
-
-    console.log(event.target.files[0]);
-
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.onloadend = () => {
         // use a regex to remove data url part
-        const base64String = reader.result
+
+        
+        _UserProfileImage = reader.result
         // .replace("data:", "")
         // .replace(/^.+,/, "");
-        image.src = base64String;
-        console.log(image.src);
+        image.src = _UserProfileImage;
+        var details = {
+            'base64image': _UserProfileImage
+        };
+        var formBody = [];
+        for (var property in details) {
+            var encodedKey = encodeURIComponent(property);
+            var encodedValue = encodeURIComponent(details[property]);
+            formBody.push(encodedKey + "=" + encodedValue);
+        }
+        formBody = formBody.join("&");
+        fetch('http://192.168.8.13:3000/user/updateProfileImage', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+            },
+            body: formBody
+        })
+            .then(response => response.json())
+            .then(data => {
+
+                console.log(data);
+                if (data.status == 'success') {
+                   
+                } else {
+                    alert('Could not save ProFile image')
+                }
+            });
+
     };
     reader.readAsDataURL(file);
 };
